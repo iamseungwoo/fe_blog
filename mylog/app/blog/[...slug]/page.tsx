@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { rehype } from 'rehype'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { serializeMDX } from "@/app/lib/mdx";
 
 /*
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -45,9 +46,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
         return notFound();
     }
     
+    const markdown = post.content;
+    console.log(markdown);
+
     return (
-        <div className="prose dark:prose-dark mt-4 w-full max-w-none">
-            <MDXRemote source={post.content} />
-        </div>
+        <article className="prose lg:prose-xl">
+            <MDXRemote source={markdown} />
+        </article>
     )
 }
