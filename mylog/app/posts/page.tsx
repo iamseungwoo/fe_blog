@@ -1,3 +1,4 @@
+import Card from '../component/card';
 import { getAllPosts } from '../lib/post';
 
 export default function PostsPage() {
@@ -5,8 +6,10 @@ export default function PostsPage() {
   console.log(posts);
   return (
     <ul>
-      {posts.map((post, i) => (
-        <li key={i}>{post.slug}</li>
+      {posts.map(post => (
+        <li key={post.slug}>
+          <Card post={post} />
+        </li>
       ))}
     </ul>
   );
