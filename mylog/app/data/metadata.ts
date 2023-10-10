@@ -1,5 +1,5 @@
 const metadata = {
-    title: "Log Info",
-}
+  title: 'Log Info',
+};
 
 export default metadata;

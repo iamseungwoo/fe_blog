@@ -1,21 +1,16 @@
-import { getAllPosts } from "../lib/post"
-
-// export const getStaticProps = () => {
-//     return {
-//         props: {
-//             posts: getAllPosts(),
-//         },
-//     };
-// };
+import Card from '../component/card';
+import { getAllPosts } from '../lib/post';
 
 export default function PostsPage() {
-    const posts = getAllPosts();
-    console.log(posts);
-    return (
-        <ul>
-            {posts.map((post, i) => (
-                <li key={i}>{post.slug}</li>
-            ))}
-        </ul>
-    );
+  const posts = getAllPosts();
+  console.log(posts);
+  return (
+    <ul>
+      {posts.map(post => (
+        <li key={post.slug}>
+          <Card post={post} />
+        </li>
+      ))}
+    </ul>
+  );
 }
