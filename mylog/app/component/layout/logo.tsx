@@ -9,7 +9,7 @@ const Logo = () => {
         alt="logo"
         height={40}
         width={40}
-        className={`rounded-full `}
+        className={``}
       />
       <span className={`hidden mx-2 font-extralight text-lg py-3 sm:flex`}>
         {metadata.title}
