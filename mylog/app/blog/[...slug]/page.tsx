@@ -1,10 +1,6 @@
 import { getAllPosts } from "@/app/lib/post";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import { rehype } from 'rehype'
-import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import { serializeMDX } from "@/app/lib/mdx";
 
 /*
 export const getStaticPaths: GetStaticPaths = async () => {
