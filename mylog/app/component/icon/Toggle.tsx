@@ -15,9 +15,16 @@ const Toggle = () => {
 
   const onClickToggle = () => {
     setToggle(toggle == TOGGLE.Light ? TOGGLE.Dark : TOGGLE.Light);
-  }
+    toggle === TOGGLE.Light
+      ? document.body.setAttribute('data-theme', 'dark')
+      : document.body.setAttribute('data-theme', 'light');
+  };
 
-  return <div onClick={onClickToggle}>{toggle === TOGGLE.Light ? <BsSun /> : <BsMoon />}</div>;
+  return (
+    <div onClick={onClickToggle}>
+      {toggle === TOGGLE.Light ? <BsSun /> : <BsMoon />}
+    </div>
+  );
 };
 
 export default Toggle;
