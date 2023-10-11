@@ -1,14 +1,32 @@
-import Card from '../component/card';
+import Card from '../component/ArticleCard/Card';
+import TagBox from '../component/Tags/TagBox';
+import SplitLine from '../component/global/SplitLine';
+import SubTitle from '../component/global/SubTitle';
 import { getAllPosts } from '../lib/post';
 
 export default function PostsPage() {
   const posts = getAllPosts();
-  console.log(posts);
+  const tags = Array.from(
+    new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [])),
+  );
+
+  console.log(tags);
+  // console.log(posts);
   return (
-    <div className={`flex flex-wrap`}>
-      {posts.map(post => (
-        <Card post={post} />
-      ))}
+    <div>
+      <SubTitle subTitle={`Tag`} />
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tags.map(tag => (
+          <TagBox tagName={tag} />
+        ))}
+      </div>
+      <SplitLine />
+      <SubTitle subTitle={`Article`} />
+      <div className={`flex flex-wrap`}>
+        {posts.map(post => (
+          <Card post={post} />
+        ))}
+      </div>
     </div>
   );
 }

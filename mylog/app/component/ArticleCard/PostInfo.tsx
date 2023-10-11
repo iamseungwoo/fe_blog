@@ -1,5 +1,5 @@
-import Calendar from './icon/Calendar';
-import Clock from './icon/Clock';
+import Calendar from '../icon/Calendar';
+import Clock from '../icon/Clock';
 
 const PostInfo = ({
   date,
