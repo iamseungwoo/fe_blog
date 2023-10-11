@@ -5,12 +5,10 @@ export default function PostsPage() {
   const posts = getAllPosts();
   console.log(posts);
   return (
-    <ul>
+    <div className={`flex flex-wrap`}>
       {posts.map(post => (
-        <li key={post.slug}>
-          <Card post={post} />
-        </li>
+        <Card post={post} />
       ))}
-    </ul>
+    </div>
   );
 }

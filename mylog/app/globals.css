@@ -16,3 +16,32 @@
   --tw-bg-opacity: 1;
   background-color: rgb(237 237 237 / var(--tw-bg-opacity));
 }
+
+[data-theme='dark'] .bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
+[data-theme='dark'] .text-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(181 181 181 / var(--tw-text-opacity));
+}
+
+[data-theme='dark'] {
+  --color-primary-accent: #00ff4c;
+  --color-primary: #fff;
+  --color-button: #00ff4c;
+  --color-paragraph: #8a8a8a;
+  --color-button-text: rgb(0, 0, 0);
+  --color-background: #000;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  transition: background 0.3s ease;
+}

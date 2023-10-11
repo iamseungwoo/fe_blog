@@ -1,6 +1,7 @@
 import navlinks from '@/app/data/navlinks';
 import Link from 'next/link';
-import Logo from './logo';
+import Toggle from '../icon/Toggle';
+
 
 const Nav = () => {
   return (
@@ -16,6 +17,7 @@ const Nav = () => {
           {nav.title}
         </Link>
       ))}
+      <Toggle />
     </div>
   );
 };

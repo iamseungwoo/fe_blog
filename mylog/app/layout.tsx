@@ -20,7 +20,7 @@ export default function RootLayout({
       <body>
         <div className="mx-auto max-w-3xl px-6 lg:max-w-6xl lg:px-8">
           <Header />
-          <div className={`w-full max-w-3xl`}>{children}</div>
+          <div className={``}>{children}</div>
         </div>
       </body>
     </html>
