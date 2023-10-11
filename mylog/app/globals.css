@@ -17,6 +17,16 @@
   background-color: rgb(237 237 237 / var(--tw-bg-opacity));
 }
 
+[data-theme='dark'] .bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
+[data-theme='dark'] .text-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(181 181 181 / var(--tw-text-opacity));
+}
+
 [data-theme='dark'] {
   --color-primary-accent: #00ff4c;
   --color-primary: #fff;
@@ -26,7 +36,7 @@
   --color-background: #000;
 }
 
-body{
+body {
   width: 100vw;
   height: 100vh;
   overflow: scroll;
