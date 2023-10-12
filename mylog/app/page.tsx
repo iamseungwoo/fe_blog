@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import Image from 'next/image';
-import Card from './component/card';
+import Card from './component/ArticleCard/Card';
 
 dayjs.locale('ko');
 

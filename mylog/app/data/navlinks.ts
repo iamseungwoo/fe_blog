@@ -1,5 +1,5 @@
 const navlinks: { title: string; link: string }[] = [
-  { title: 'Series', link: '/series' },
+  { title: 'Blog', link: '/blog' },
   { title: 'Article', link: '/article' },
 ];
 

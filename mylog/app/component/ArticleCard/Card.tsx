@@ -1,4 +1,4 @@
-import { Post } from '../lib/post';
+import { Post } from '../../lib/post';
 import PostInfo from './PostInfo';
 import Tag from './Tag';
 
