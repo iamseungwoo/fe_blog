@@ -7,7 +7,7 @@ import { getAllPosts } from '../lib/post';
 export default function PostsPage() {
   const posts = getAllPosts();
   const tags = Array.from(
-    new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [])),
+    new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [''])),
   );
 
   console.log(tags);
