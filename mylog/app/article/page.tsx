@@ -16,15 +16,15 @@ export default function PostsPage() {
     <div>
       <SubTitle subTitle={`Tag`} />
       <div className="mt-4 flex flex-wrap gap-2">
-        {tags.map(tag => (
-          <TagBox tagName={tag} />
+        {tags.map((tag, i) => (
+          <TagBox tagName={tag} key={i} />
         ))}
       </div>
       <SplitLine />
       <SubTitle subTitle={`Article`} />
       <div className={`flex flex-wrap`}>
-        {posts.map(post => (
-          <Card post={post} />
+        {posts.map((post, i) => (
+          <Card post={post} key={i} />
         ))}
       </div>
     </div>

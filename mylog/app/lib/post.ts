@@ -55,3 +55,11 @@ const parsePost = (postPath: string): Post | undefined => {
     console.error(e);
   }
 };
+
+
+export const getAllSeries = () => {
+  return getAllPosts()
+            .map(post => post.slug)
+            .map(slug => slug.split('/').slice(2, -1)[0])
+            .filter(series => series && series);
+}
