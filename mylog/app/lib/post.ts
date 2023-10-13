@@ -4,6 +4,7 @@ import readingTime from 'reading-time';
 import dayjs from 'dayjs';
 import { sync } from 'glob';
 import path from 'path';
+import { cache } from 'react';
 
 const BASE_PATH = '/posts';
 const POSTS_PATH = path.join(process.cwd(), BASE_PATH);
@@ -23,14 +24,14 @@ export type Post = PostMatter & {
   wordCount: number;
 };
 
-export const getAllPosts = () => {
+export const getAllPosts = cache(() => {
   const postPaths: string[] = sync(`${POSTS_PATH}/**/*.mdx`);
 
   return postPaths.reduce<Post[]>((ac, postPath) => {
     const post = parsePost(postPath);
     return !post ? ac : [...ac, post];
   }, []);
-};
+});
 
 const parsePost = (postPath: string): Post | undefined => {
   try {

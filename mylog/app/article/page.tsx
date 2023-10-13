@@ -8,7 +8,7 @@ export default function PostsPage() {
   const posts = getAllPosts();
   const tags = Array.from(
     new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [''])),
-  );
+  ).filter(tag => tag !== '');
 
   console.log(tags);
   // console.log(posts);
