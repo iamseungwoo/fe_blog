@@ -17,13 +17,15 @@ const Page = async ({ params }: { params: { slug: string } }) => {
   }
   return (
     <>
-      <div className="flex flex-wrap">
-        <div className="sm:w-1/2">
+      <div className="grid gap-8 sm:grid-cols-3 sm:gap-32">
+        <div className="sm:sticky sm:top-8 sm:self-start">
           <BookCard bookName={series} />
         </div>
-        {seriesArticle.map(el => (
-          <Card post={el} />
-        ))}
+        <div className="sm:col-span-2">
+          {seriesArticle.map(el => (
+            <Card post={el} />
+          ))}
+        </div>
       </div>
     </>
   );
