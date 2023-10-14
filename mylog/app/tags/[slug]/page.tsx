@@ -3,7 +3,7 @@ import SubTitle from '@/app/component/global/SubTitle';
 import { getPostsWithTag } from '@/app/lib/post';
 
 const Page = ({ params }: { params: { slug: string } }) => {
-  const tag = params.slug;
+  const tag = decodeURI(params.slug);
   const tagPosts = getPostsWithTag(tag);
 
   return (
