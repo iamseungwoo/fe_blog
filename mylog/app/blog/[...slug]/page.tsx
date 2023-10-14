@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: { slug: any } }) {
   const markdown = post.content;
   console.log(markdown);
   return (
-    <article className="prose lg:prose-xl">
+    <article className="text-primary font-semibold">
       <PostTitle post={post} />
       <MDXRemote source={markdown} />
     </article>

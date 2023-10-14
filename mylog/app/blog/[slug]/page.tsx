@@ -1,20 +1,15 @@
 import Card from '@/app/component/ArticleCard/Card';
 import BookCard from '@/app/component/BookCard';
-import { getAllPosts } from '@/app/lib/post';
+import { getAllPosts, getPostWithSeries } from '@/app/lib/post';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 const Page = async ({ params }: { params: { slug: string } }) => {
-  const slug = `/posts/${[decodeURI(params.slug)].join('/')}`;
-  const series = decodeURI(params.slug);
-  const seriesArticle: any[] = getAllPosts().filter(
-    ps => ps.slug.split('/')[2] == series,
-  );
+  const series = params.slug;
+  console.log(series);
 
-  console.log(seriesArticle);
-  if (!seriesArticle.length) {
-    console.log(123);
-    return notFound();
-  }
+  const seriesPosts = getPostWithSeries(series);
+
   return (
     <>
       <div className="grid gap-8 sm:grid-cols-3 sm:gap-32">
@@ -22,8 +17,10 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <BookCard bookName={series} />
         </div>
         <div className="sm:col-span-2">
-          {seriesArticle.map(el => (
-            <Card post={el} />
+          {seriesPosts.map((el, i) => (
+            <Link href={el.slug.replace('/posts', '/blog')} key={i}>
+              <Card post={el} />
+            </Link>
           ))}
         </div>
       </div>
