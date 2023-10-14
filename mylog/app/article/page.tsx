@@ -1,4 +1,5 @@
 import Card from '../component/ArticleCard/Card';
+import Tag from '../component/ArticleCard/Tag';
 import TagBox from '../component/Tags/TagBox';
 import SplitLine from '../component/global/SplitLine';
 import SubTitle from '../component/global/SubTitle';
@@ -15,7 +16,7 @@ export default function PostsPage() {
       <SubTitle subTitle={`Tag`} />
       <div className="mt-4 flex flex-wrap gap-2">
         {tags.map((tag, i) => (
-          <TagBox tagName={tag} key={i} />
+          <Tag name={tag} key={i} />
         ))}
       </div>
       <SplitLine />
