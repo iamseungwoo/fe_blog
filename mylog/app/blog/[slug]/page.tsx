@@ -1,14 +1,15 @@
-import Card from '@/app/component/ArticleCard/Card';
+import Card from '@/app/component/Series/Card';
 import BookCard from '@/app/component/BookCard';
-import { getAllPosts, getPostWithSeries } from '@/app/lib/post';
+import { getPostWithSeries } from '@/app/lib/post';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const series = params.slug;
   console.log(series);
 
-  const seriesPosts = getPostWithSeries(series);
+  const seriesPosts = getPostWithSeries(series).sort((a, b) =>
+    a.date.localeCompare(b.date),
+  );
 
   return (
     <>
@@ -18,8 +19,11 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </div>
         <div className="sm:col-span-2">
           {seriesPosts.map((el, i) => (
-            <Link href={el.slug.replace('/posts', '/blog')} key={i}>
-              <Card post={el} />
+            <Link
+              href={el.slug.replace('/posts', `/blog/${el.series}`)}
+              key={i}
+            >
+              <Card post={el} idx={i} />
             </Link>
           ))}
         </div>

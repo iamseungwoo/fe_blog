@@ -5,7 +5,7 @@ import SubTitle from '../component/global/SubTitle';
 import { getAllPosts, getAllTags } from '../lib/post';
 
 export default function PostsPage() {
-  const posts = getAllPosts();
+  const posts = getAllPosts().sort((a, b) => b.date.localeCompare(a.date));
   const tags = getAllTags();
 
   console.log(tags);
