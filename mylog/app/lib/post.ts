@@ -15,6 +15,7 @@ type PostMatter = {
   tags: string[];
   draft?: boolean;
   date: string;
+  series: string;
 };
 
 export type Post = PostMatter & {
@@ -46,7 +47,7 @@ const parsePost = (postPath: string): Post | undefined => {
     return {
       ...grayMatter,
       tags: grayMatter.tags && grayMatter.tags.filter(Boolean),
-      date: dayjs(grayMatter.date).format('YYYY-MM-DD'),
+      date: dayjs(grayMatter.date).format('YYYY.MM.DD'),
       content,
       slug: postPath.slice(postPath.indexOf(BASE_PATH)).replace('.mdx', ''),
       readingMinutes: Math.ceil(readingTime(content).minutes),
@@ -59,8 +60,17 @@ const parsePost = (postPath: string): Post | undefined => {
 
 
 export const getAllSeries = () => {
-  return [...new Set(getAllPosts()
-            .map(post => post.slug)
-            .map(slug => slug.split('/').slice(2, -1)[0])
-            .filter(series => series != '' && !series.match(/\b20\d{2}\b/g)))];
+  return [...new Set(getAllPosts().map(post => post.series).filter(series => series != ''))];
+}
+
+export const getPostWithSeries = (series: string) => {
+  return getAllPosts().filter(post => post.series === series)
+}
+
+export const getAllTags = () => {
+  const posts = getAllPosts();
+  
+  return [
+    ...new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [''])),
+  ].filter(tag => tag !== '')
 }
