@@ -2,13 +2,11 @@ import Card from '../component/ArticleCard/Card';
 import TagBox from '../component/Tags/TagBox';
 import SplitLine from '../component/global/SplitLine';
 import SubTitle from '../component/global/SubTitle';
-import { getAllPosts } from '../lib/post';
+import { getAllPosts, getAllTags } from '../lib/post';
 
 export default function PostsPage() {
   const posts = getAllPosts();
-  const tags = Array.from(
-    new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [''])),
-  ).filter(tag => tag !== '');
+  const tags = getAllTags();
 
   console.log(tags);
   // console.log(posts);

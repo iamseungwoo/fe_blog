@@ -66,3 +66,11 @@ export const getAllSeries = () => {
 export const getPostWithSeries = (series: string) => {
   return getAllPosts().filter(post => post.series === series)
 }
+
+export const getAllTags = () => {
+  const posts = getAllPosts();
+  
+  return [
+    ...new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [''])),
+  ].filter(tag => tag !== '')
+}
