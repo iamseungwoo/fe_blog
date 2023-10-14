@@ -74,3 +74,7 @@ export const getAllTags = () => {
     ...new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [''])),
   ].filter(tag => tag !== '')
 }
+
+export const getPostsWithTag = (tag: string) => {
+  return getAllPosts().filter(post => post.tags.includes(tag));
+}
