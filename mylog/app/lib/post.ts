@@ -59,8 +59,8 @@ const parsePost = (postPath: string): Post | undefined => {
 
 
 export const getAllSeries = () => {
-  return getAllPosts()
+  return [...new Set(getAllPosts()
             .map(post => post.slug)
             .map(slug => slug.split('/').slice(2, -1)[0])
-            .filter(series => series && series);
+            .filter(series => series != '' && !series.match(/\b20\d{2}\b/g)))];
 }
