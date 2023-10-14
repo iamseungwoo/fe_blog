@@ -18,7 +18,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </div>
         <div className="sm:col-span-2">
           {seriesPosts.map((el, i) => (
-            <Link href={el.slug.replace('/posts', '/blog')} key={i}>
+            <Link href={el.slug.replace('/posts', `/blog/${el.series}`)} key={i}>
               <Card post={el} />
             </Link>
           ))}

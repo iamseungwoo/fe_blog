@@ -2,18 +2,15 @@ import { Post } from '@/app/lib/post';
 import Link from 'next/link';
 
 const PostTitle = ({ post }: { post: Post }) => {
-  const slugs = post.slug.split('/').filter(el => el != '');
-  const series = slugs[1];
-
   return (
     <div style={{ opacity: 1, willChange: 'opacity' }}>
       <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl mx-auto mb-4 max-w-3xl text-center">
         {post.title}
       </h1>
       <div className="mt-2 flex justify-center gap-1">
-        <Link href={`/blog/${series}`}>
+        <Link href={`/blog/${post.series}`}>
           <span className="text-sm font-medium underline sm:text-base">
-            {series}
+            {post.series}
           </span>
         </Link>
       </div>
@@ -31,7 +28,7 @@ const PostTitle = ({ post }: { post: Post }) => {
             >
               <path
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
                 d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
               ></path>
             </svg>
@@ -49,7 +46,7 @@ const PostTitle = ({ post }: { post: Post }) => {
             >
               <path
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
                 d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
               ></path>
             </svg>

@@ -4,12 +4,10 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
 export default async function Page({ params }: { params: { slug: any } }) {
-  const slug = `/posts/${[decodeURI(params.slug).replaceAll(',', '/')].join(
-    '/',
-  )}`;
+  const slug = `/posts/${[decodeURI(params.slug).split(',')[1]].join('/')}`;
   const post = getAllPosts().find(post => post.slug === slug);
 
-  console.log(slug);
+  console.log();
   if (!post) {
     return notFound();
   }
