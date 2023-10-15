@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.dark .hover\:bg-secondary:hover {
+[data-theme='dark'] .hover\:bg-secondary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
@@ -17,17 +17,17 @@
   background-color: rgb(237 237 237 / var(--tw-bg-opacity));
 }
 
-.dark .bg-secondary {
+[data-theme="dark"] .bg-secondary {
   --tw-bg-opacity: 1;
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
 
-.dark .text-secondary {
+[data-theme='dark'] .text-secondary {
   --tw-text-opacity: 1;
   color: rgb(181 181 181 / var(--tw-text-opacity));
 }
 
-.dark {
+[data-theme='dark'] {
   --color-primary-accent: #00ff4c;
   --color-primary: #fff;
   --color-button: #00ff4c;
@@ -59,11 +59,11 @@ body {
   background-color: hsla(0, 0%, 45%, 0.3);
 } */
 
-.dark .dark\:bg-neutral-800 {
+[data-theme='dark'] .dark\:bg-neutral-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
-.dark .dark\:bg-neutral-700 {
+[data-theme='dark'] .dark\:bg-neutral-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(64 64 64 / var(--tw-bg-opacity));
 }
