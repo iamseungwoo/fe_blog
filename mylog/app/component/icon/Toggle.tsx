@@ -26,7 +26,7 @@ const Toggle = () => {
 
   return (
     <div onClick={onClickToggle}>
-      {theme === 'light' ? <BsSun /> : <BsMoon />}
+      {theme !== 'light' ? <BsSun /> : <BsMoon />}
     </div>
   );
 };
