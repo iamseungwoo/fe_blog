@@ -1,43 +1,32 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { BsSun, BsMoon } from 'react-icons/bs';
+import { BsMoon, BsSun } from 'react-icons/bs';
 
-const TOGGLE = {
-  Light: 'light',
-  Dark: 'dark',
-} as const;
-
-type TOGGLE = (typeof TOGGLE)[keyof typeof TOGGLE];
+type Theme = 'light' | 'dark';
 
 const Toggle = () => {
-  
-  const [toggle, setToggle] = useState<TOGGLE | string>();
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
+  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
-    const theme: string | null = sessionStorage.getItem('theme') || 'light';
-    setToggle(theme);
-    document.body.className = theme;
-  });
+    setMounted(true);
+  }, []);
 
-  const darkMode = () => {
-    window.sessionStorage.setItem('theme', TOGGLE.Dark);
-    document.body.className = TOGGLE.Dark;
-  };
-
-  const lightMode = () => {
-    sessionStorage.setItem('theme', TOGGLE.Light);
-    document.body.className = TOGGLE.Light;
-  };
+  if (!mounted) {
+    return null;
+  }
 
   const onClickToggle = () => {
-    setToggle(toggle == TOGGLE.Light ? TOGGLE.Dark : TOGGLE.Light);
-    toggle === TOGGLE.Light ? darkMode() : lightMode();
+    console.log(theme === 'light');
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return (
     <div onClick={onClickToggle}>
-      {toggle === TOGGLE.Light ? <BsSun /> : <BsMoon />}
+      {theme === 'light' ? <BsSun /> : <BsMoon />}
     </div>
   );
 };
