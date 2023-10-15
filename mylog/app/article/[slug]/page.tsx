@@ -1,7 +1,8 @@
-import PostTitle from "@/app/component/PostPage/PostTitle";
-import { getAllPosts } from "@/app/lib/post";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { notFound } from "next/navigation";
+import PostTitle from '@/app/component/PostPage/PostTitle';
+import Giscus from '@/app/component/global/Giscus';
+import { getAllPosts } from '@/app/lib/post';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { notFound } from 'next/navigation';
 
 const Page = ({ params }: { params: { slug: any } }) => {
   const slug = `/posts/${[decodeURI(params.slug)].join('/')}`;
@@ -15,10 +16,13 @@ const Page = ({ params }: { params: { slug: any } }) => {
   const markdown = post.content;
   console.log(markdown);
   return (
-    <article className="text-primary font-semibold">
-      <PostTitle post={post} />
-      <MDXRemote source={markdown} />
-    </article>
+    <>
+      <article className="text-primary font-semibold">
+        <PostTitle post={post} />
+        <MDXRemote source={markdown} />
+      </article>
+      <Giscus />
+    </>
   );
 };
 
