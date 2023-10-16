@@ -1,0 +1,48 @@
+---
+title: 'MockMvcTest 에러'
+description: ''
+icon: ''
+image: ''
+tags:
+  - 'spring boot'
+  - '끄적끄적'
+draft: false
+date: 2023-08-24 20:07:59
+series: 'army'
+---
+
+# MockMvcTest 에러
+
+# Error 화면
+
+![Untitled](/uploadImg/MockMvcTest%20%E1%84%8B%E1%85%A6%E1%84%85%E1%85%A5%201214d775ed7f47359b1ae919401623d0/Untitled.png)
+
+Controller를 테스트 하면서 나오는 Error이다.
+
+Spring, Java 등 JUnit 테스트 코드를 만드는 게 이번이 처음인데 상당히 당황스럽다.
+
+분명 블로그나 문서에서 하라는 데로 했는 데 왜 안되는 거지?
+
+## 나름의 에러 해석
+
+TestController가 ApplicationContext를 못불러 오고 있어 에러다!
+
+→ GymService가 Autowired되고 있지 않은 건가..?
+
+# 어느 천사의 블로그 글
+
+> [https://velog.io/@hiy7030/Spring-IllegalStateException-Failed-to-load-ApplicationContext](https://velog.io/@hiy7030/Spring-IllegalStateException-Failed-to-load-ApplicationContext)
+
+@WebMvcTest는 테스트 진행에 필요한 ApplicationContext를 설정을 직접해줘야하는 데 그걸 안해줘서 에러가 발생한 것이라고 한다.
+
+GymService의 Autowired를 없에서 MockBean 어노테이션을 달아 줘 에러 탈출 했다!
+
+## 주절주절
+
+현재 테스트 코드에서는 GymService를 쓰지 않기 때문에 Mock으로 만들어 준다
+
+# MockBean
+
+Spring ApplicationContext를 mock으로 사용 가능하게 해준다.
+
+Class, fields 혹은 SpringRunner 테스트 class Level에서 annotation을 붙일 수 있다.
