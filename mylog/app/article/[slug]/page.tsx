@@ -5,7 +5,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
 const Page = ({ params }: { params: { slug: any } }) => {
-  const slug = `/posts/${[decodeURI(params.slug)].join('/')}`;
+  const slug = `/article/${[decodeURI(params.slug)].join('/')}`;
   const post = getAllPosts().find(post => post.slug === slug);
 
   console.log();

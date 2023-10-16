@@ -4,7 +4,7 @@ import { getPostsWithTag } from '@/app/lib/post';
 
 const Page = ({ params }: { params: { slug: string } }) => {
   const tag = decodeURI(params.slug);
-  const tagPosts = getPostsWithTag(tag);
+  const tagPosts = getPostsWithTag(tag, );
 
   return (
     <>

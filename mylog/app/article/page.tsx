@@ -1,12 +1,11 @@
 import Card from '../component/ArticleCard/Card';
 import Tag from '../component/ArticleCard/Tag';
-import TagBox from '../component/Tags/TagBox';
 import SplitLine from '../component/global/SplitLine';
 import SubTitle from '../component/global/SubTitle';
-import { getAllPosts, getAllTags } from '../lib/post';
+import { getAllTags, getPostsSortDateAsc } from '../lib/post';
 
 export default function PostsPage() {
-  const posts = getAllPosts().sort((a, b) => b.date.localeCompare(a.date));
+  const posts = getPostsSortDateAsc();
   const tags = getAllTags();
 
   console.log(tags);
