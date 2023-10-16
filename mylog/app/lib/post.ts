@@ -1,12 +1,13 @@
-import { readFileSync } from 'fs';
-import matter from 'gray-matter';
-import readingTime from 'reading-time';
 import dayjs from 'dayjs';
+import { readFileSync } from 'fs';
 import { sync } from 'glob';
+import matter from 'gray-matter';
 import path from 'path';
 import { cache } from 'react';
+import readingTime from 'reading-time';
+import { Order } from './type/Order';
 
-const BASE_PATH = '/posts';
+const BASE_PATH = '/article';
 const POSTS_PATH = path.join(process.cwd(), BASE_PATH);
 
 type PostMatter = {
@@ -58,23 +59,38 @@ const parsePost = (postPath: string): Post | undefined => {
   }
 };
 
-
 export const getAllSeries = () => {
-  return [...new Set(getAllPosts().map(post => post.series).filter(series => series != ''))];
-}
+  return [
+    ...new Set(
+      getAllPosts()
+        .map(post => post.series)
+        .filter(series => series != ''),
+    ),
+  ];
+};
 
-export const getPostWithSeries = (series: string) => {
-  return getAllPosts().filter(post => post.series === series)
-}
+export const getPostWithSeries = (series: string, order: Order = 'asc') => {
+  const posts =
+    order === 'asc' ? getPostsSortDateAsc() : getPostsSortDateDesc();
+  return posts.filter(post => post.series === series);
+};
 
 export const getAllTags = () => {
   const posts = getAllPosts();
-  
+
   return [
     ...new Set(posts.reduce((acc, curr) => acc.concat(curr.tags), [''])),
-  ].filter(tag => tag !== '')
-}
+  ].filter(tag => tag !== '');
+};
 
 export const getPostsWithTag = (tag: string) => {
   return getAllPosts().filter(post => post.tags.includes(tag));
-}
+};
+
+export const getPostsSortDateDesc = cache(() => {
+  return getAllPosts().sort((a, b) => b.date.localeCompare(a.date));
+});
+
+export const getPostsSortDateAsc = cache(() => {
+  return getAllPosts().sort((a, b) => a.date.localeCompare(b.date));
+});
