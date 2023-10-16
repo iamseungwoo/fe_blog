@@ -16,7 +16,10 @@ const Aboutme = () => {
       </div>
 
       <div className="font-semibold flex flex-row-reverse text-right mt-2">
-        <Link href={``} className="flex items-center">
+        <Link
+          href={`https://qyinm.notion.site/qyinm-x-Engineer-709cd096daba49b293ac8bf68583c4af?pvs=4`}
+          className="flex items-center"
+        >
           <RxNotionLogo />
           resume
         </Link>
