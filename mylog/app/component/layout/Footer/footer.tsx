@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import { RiTwitterXFill } from 'react-icons/ri';
 const Footer = () => {
   return (
     <footer className="pb-8 text-sm text-neutral-800 dark:text-neutral-400 mt-5">
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="flex flex-col items-end space-y-1">
         <div className="flex space-x-2">
           <Link
-            href="mailto:bepyan@naver.com"
+            href="mailto:qusseun@gmail.com"
             className="text-primary transition hover:text-secondary"
             target="_blank"
             rel="noopener noreferrer"
@@ -25,7 +25,7 @@ const Footer = () => {
             </svg>
           </Link>
           <Link
-            href="https://github.com/bepyan"
+            href="https://github.com/iamseungwoo"
             className="text-primary transition hover:text-secondary"
             target="_blank"
             rel="noopener noreferrer"
@@ -43,46 +43,18 @@ const Footer = () => {
             </svg>
           </Link>
           <Link
-            href="https://twitter.com/__pyungan"
+            href="https://x.com/quseun"
             className="text-primary transition hover:text-secondary"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <svg
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              width="16"
-              height="16"
-            >
-              <title>Twitter</title>
-              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
-            </svg>
-          </Link>
-          <Link
-            href="https://velog.io/@bepyan"
-            className="text-primary transition hover:text-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              width="16"
-              height="16"
-            >
-              <title>Velog</title>
-              <path d="M3 0C1.338 0 0 1.338 0 3v18c0 1.662 1.338 3 3 3h18c1.662 0 3-1.338 3-3V3c0-1.662-1.338-3-3-3H3Zm6.883 6.25c.63 0 1.005.3 1.125.9l1.463 8.303c.465-.615.846-1.133 1.146-1.553.465-.66.893-1.418 1.283-2.273.405-.855.608-1.62.608-2.295 0-.405-.113-.727-.338-.967-.21-.255-.608-.577-1.193-.967.6-.765 1.35-1.148 2.25-1.148.48 0 .878.143 1.193.428.33.285.494.704.494 1.26 0 .93-.39 2.093-1.17 3.488-.765 1.38-2.241 3.457-4.431 6.232l-2.227.156-1.711-9.628h-2.25V7.24c.6-.195 1.305-.406 2.115-.63.81-.24 1.358-.36 1.643-.36Z"></path>
-            </svg>
+            <RiTwitterXFill />
           </Link>
         </div>
         <p>
           <span>© 2022-2023 </span>
           <Link
-            href="bepyan"
+            href="/"
             className="text-primary transition hover:text-secondary"
             target="_blank"
             rel="noopener noreferrer"
