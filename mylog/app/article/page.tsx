@@ -2,10 +2,10 @@ import Card from '../component/ArticleCard/Card';
 import Tag from '../component/ArticleCard/Tag';
 import SplitLine from '../component/global/SplitLine';
 import SubTitle from '../component/global/SubTitle';
-import { getAllTags, getPostsSortDateAsc } from '../lib/post';
+import { getAllTags, getPostsSortDateDesc } from '../lib/post';
 
 export default function PostsPage() {
-  const posts = getPostsSortDateAsc();
+  const posts = getPostsSortDateDesc();
   const tags = getAllTags();
 
   console.log(tags);

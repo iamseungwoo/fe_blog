@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { RxNotionLogo } from 'react-icons/rx';
-import SubTitle from './global/SubTitle';
 
 const Aboutme = () => {
   return (
     <div className="px-3 py-4 text-secondary">
       <div className="border-b-2 py-4">
-        <SubTitle subTitle="qyinm" />
+        <h2 className="mb-4 text-3xl font-extrabold tracking-tight sm:text-5xl">
+          qyinm
+        </h2>
       </div>
       <div className="mt-2">
         Backend Developer, current Republic of Korea Army

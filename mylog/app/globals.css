@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(./prose.css);
 
 [data-theme='dark'] .hover\:bg-secondary:hover {
   --tw-bg-opacity: 1;
