@@ -12,11 +12,12 @@ module.exports = {
       },
     },
   },
+  parser: '@typescript-eslint/parser',
   rules: {
-    'react/jsx-filename-extension': [
-      {
-        extensions: ['.js', '.jsx'],
-      },
-    ],
+    'import/no-unresolved': 0,
+    'import/extensions': ['.js', '.json', '.jsx', '.ts', '.tsx'],
+    'react/jsx-filename-extension': {
+      extensions: ['.jsx', '.tsx'],
+    },
   },
 };
