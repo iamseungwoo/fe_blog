@@ -5,11 +5,13 @@ module.exports = {
     node: true,
   },
   extends: ['airbnb', 'plugin:prettier/recommended'],
-  rules: [
+  rules: {
     'react/jsx-filename-extension': [
-        'error',
-        {
-          extensions: ['.js', '.jsx'],
-        },
-  ],
+      'error',
+      {
+        extensions: ['.js', '.jsx'],
+      },
+      { namedComponents: ['arrow-function', 'function-declaration'] },
+    ],
+  },
 };
