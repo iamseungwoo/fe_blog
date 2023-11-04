@@ -19,6 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css"
+        />
+      </head>
       <body>
         <Providers>
           <div className="mx-auto max-w-3xl px-6 lg:max-w-6xl lg:px-8">
