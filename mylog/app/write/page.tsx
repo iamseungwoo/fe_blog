@@ -9,7 +9,7 @@ const Tui = dynamic(() => import('../component/Editor/Tui'), {
 export default function Page() {
   return (
     <div>
-      <Tui />
+      <Tui initValue="write your content!" />
     </div>
   );
 }
