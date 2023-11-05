@@ -7,9 +7,16 @@ import { Editor } from '@toast-ui/react-editor';
 import { useTheme } from 'next-themes';
 import { useEffect, useRef } from 'react';
 import Prism from 'prismjs';
+import { uploadBoardImage } from '@/app/api/fileupload/uploadBoardImage';
 
 type Props = {
   initValue: string;
+};
+
+type HookCallback = (url: string, text?: string) => void;
+
+export type HookMap = {
+  addImageBlobHook?: (blob: Blob | File, callback: HookCallback) => void;
 };
 
 const TUITHEME = 'toastui-editor-dark';
@@ -43,6 +50,30 @@ const Tui = (props: Props) => {
     const content = editorRef.current?.getInstance().getHTML() || '';
     console.log(content);
   };
+  /*
+  const addImageBlobHook = async (blob: Blob, callback: any) => {
+    const formData = new FormData();
+    formData.append('image', blob);
+
+    try {
+      const res = await uploadBoardImage(formData);
+      callback(res.data.imageUrl, `image`);
+    } catch (err: any) {
+      console.error(err);
+      callback(`이미지 업로드 실패, ${err.message}`);
+    }
+  };*/
+  const onUploadImage = async (blob: any, callback: HookCallback) => {
+    const formData = new FormData();
+    formData.append("image", blob);
+
+    try {
+      const res = await uploadBoardImage(formData);
+      callback(res.data.imageUrl, `image`);
+    } catch (err: any) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -57,6 +88,9 @@ const Tui = (props: Props) => {
           toolbarItems={toolbarItems}
           theme={theme}
           plugins={[colorSyntax, [codeSyntaxHighlight, { highlighter: Prism }]]}
+          hooks={{
+            addImageBlobHook: onUploadImage,
+          }}
         />
       </div>
       <button onClick={handleSubmit}>save</button>
