@@ -1,4 +1,5 @@
 {
+  "proxy": "https://8080-iamseungwoo-beblog-22aghdom0rr.ws-us105.gitpod.io",
   "name": "mylog",
   "version": "0.1.0",
   "private": true,

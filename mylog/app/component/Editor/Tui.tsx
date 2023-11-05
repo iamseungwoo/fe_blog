@@ -69,6 +69,7 @@ const Tui = (props: Props) => {
 
     try {
       const res = await uploadBoardImage(formData);
+      console.log(res);
       callback(res.data.imageUrl, `image`);
     } catch (err: any) {
       console.error(err);
