@@ -5,9 +5,10 @@ import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
 import { Editor } from '@toast-ui/react-editor';
 import { useTheme } from 'next-themes';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Prism from 'prismjs';
 import { uploadBoardImage } from '@/app/api/fileupload/uploadBoardImage';
+import InputTag from './InputTag';
 
 type Props = {
   initValue: string;
@@ -47,25 +48,13 @@ const Tui = (props: Props) => {
   }, [theme]);
 
   const handleSubmit = () => {
-    const content = editorRef.current?.getInstance().getHTML() || '';
+    const content = editorRef.current?.getInstance().getMarkdown() || '';
     console.log(content);
   };
-  /*
-  const addImageBlobHook = async (blob: Blob, callback: any) => {
-    const formData = new FormData();
-    formData.append('image', blob);
 
-    try {
-      const res = await uploadBoardImage(formData);
-      callback(res.data.imageUrl, `image`);
-    } catch (err: any) {
-      console.error(err);
-      callback(`이미지 업로드 실패, ${err.message}`);
-    }
-  };*/
   const onUploadImage = async (blob: any, callback: HookCallback) => {
     const formData = new FormData();
-    formData.append("image", blob);
+    formData.append('image', blob);
 
     try {
       const res = await uploadBoardImage(formData);
@@ -76,8 +65,33 @@ const Tui = (props: Props) => {
     }
   };
 
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const [text, setText] = useState('');
+
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(e.currentTarget.value);
+    // textarea 높이 조절
+    if (textareaRef && textareaRef.current) {
+      textareaRef.current.style.height = '0px';
+      const scrollHeight = textareaRef.current.scrollHeight;
+      textareaRef.current.style.height = scrollHeight + 'px';
+    }
+  };
+
   return (
     <>
+      <div>
+        <textarea
+          placeholder="제목을 입력하세요"
+          rows={1}
+          ref={textareaRef}
+          value={text}
+          onChange={onChange}
+          className="w-full resize-none font-extrabold"
+        ></textarea>
+      </div>
+      <InputTag />
       <div id="editor">
         <Editor
           ref={editorRef}
@@ -89,9 +103,12 @@ const Tui = (props: Props) => {
           toolbarItems={toolbarItems}
           theme={theme}
           plugins={[colorSyntax, [codeSyntaxHighlight, { highlighter: Prism }]]}
-          hooks={{
-            addImageBlobHook: onUploadImage,
-          }}
+          hooks={
+            {
+              // 백엔드 배포시 사용
+              // addImageBlobHook: onUploadImage,
+            }
+          }
         />
       </div>
       <button onClick={handleSubmit}>save</button>
