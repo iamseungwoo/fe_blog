@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import Prism from 'prismjs';
 import { uploadBoardImage } from '@/app/api/fileupload/uploadBoardImage';
 import InputTag from './InputTag';
+import { useRouter } from 'next/router';
 
 type Props = {
   initValue: string;
@@ -37,7 +38,7 @@ const Tui = (props: Props) => {
   const theme = resolvedTheme;
 
   const editorRef = useRef<Editor>(null);
-
+  const router = useRouter();
   useEffect(() => {
     const editor = document.querySelector('.toastui-editor-defaultUI');
     if (theme == 'light') {
@@ -61,7 +62,7 @@ const Tui = (props: Props) => {
       console.log(res);
       callback(res.data.imageUrl, `image`);
     } catch (err: any) {
-      console.error(err);
+      router.push('/mypage');
     }
   };
 
@@ -106,7 +107,7 @@ const Tui = (props: Props) => {
           hooks={
             {
               // 백엔드 배포시 사용
-              // addImageBlobHook: onUploadImage,
+              addImageBlobHook: onUploadImage,
             }
           }
         />

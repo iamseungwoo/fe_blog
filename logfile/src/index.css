@@ -1,0 +1,105 @@
+@tailwind base;
+
+@layer base {
+    h1 {
+        @apply text-2xl;
+    }
+    h2 {
+        @apply text-xl;
+    }
+    h3 {
+        @apply text-lg;
+    }
+    /* a {
+    @apply text-blue-600 underline;
+  } */
+}
+
+@tailwind components;
+@tailwind utilities;
+
+[data-theme="dark"] .hover\:bg-secondary:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-secondary:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(237 237 237 / var(--tw-bg-opacity));
+}
+
+.bg-secondary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(237 237 237 / var(--tw-bg-opacity));
+}
+
+[data-theme="dark"] .bg-secondary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
+[data-theme="dark"] .text-secondary {
+    --tw-text-opacity: 1;
+    color: rgb(181 181 181 / var(--tw-text-opacity));
+}
+
+[data-theme="dark"] {
+    --color-primary-accent: #00ff4c;
+    --color-primary: #fff;
+    --color-button: #00ff4c;
+    --color-paragraph: #8a8a8a;
+    --color-button-text: rgb(0, 0, 0);
+    --color-background: #000;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    transition: background 0.3s ease;
+}
+
+/* series book 관련 */
+.no-scrollbar {
+    -ms-overflow-style: none; /* 익스플로러, 앳지 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라 */
+}
+
+/* .dark ::selection {
+  background-color: hsla(0, 0%, 45%, 0.3);
+} */
+
+[data-theme="dark"] .dark\:bg-neutral-800 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+[data-theme="dark"] .dark\:bg-neutral-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+}
+
+.text-neutral-800 {
+    --tw-text-opacity: 1;
+    color: rgb(38 38 38 / var(--tw-text-opacity));
+}
+
+[data-theme="dark"] .dark\:text-neutral-400 {
+    --tw-text-opacity: 1;
+    color: rgb(163 163 163 / var(--tw-text-opacity));
+}
+
+[data-theme="dark"] .text-primary {
+    --tw-text-opacity: 1;
+    color: rgb(229 229 229 / var(--tw-text-opacity));
+}
+
+[data-theme="dark"] .dark\:border-neutral-700 {
+    --tw-border-opacity: 1;
+    border-color: rgb(64 64 64 / var(--tw-border-opacity));
+}
