@@ -6,12 +6,12 @@ const Editor = () => {
     const [value, setValue] = useState("");
 
     return (
-        <div className="">
+        <div className="h-[40vh]">
             <MDEditor
                 codeHighlighting
                 value={value}
                 onChange={setValue}
-                height={1200}
+                height={700}
                 previewOptions={{
                     components: {
                         Code: CodeBox,
