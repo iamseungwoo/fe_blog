@@ -17,6 +17,8 @@
     "@toast-ui/editor-plugin-code-syntax-highlight": "^3.1.0",
     "@toast-ui/editor-plugin-color-syntax": "^3.1.0",
     "@types/mdx": "^2.0.8",
+    "@uiw/react-md-editor": "^3.25.3",
+    "@uiw/react-textarea-code-editor": "^2.1.9",
     "axios": "^1.6.0",
     "dayjs": "^1.11.10",
     "eslint-config-airbnb": "^19.0.4",

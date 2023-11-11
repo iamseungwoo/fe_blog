@@ -2,14 +2,14 @@
 
 import dynamic from 'next/dynamic';
 
-const Tui = dynamic(() => import('../component/Editor/Tui'), {
+const Editor = dynamic(() => import('../component/Editor/Editor'), {
   ssr: false,
 });
 
 export default function Page() {
   return (
     <div>
-      <Tui initValue="write your content!" />
+      <Editor initValue="write your content!" />
     </div>
   );
 }
