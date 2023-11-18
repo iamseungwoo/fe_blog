@@ -25,7 +25,7 @@ const Toggle = () => {
   };
 
   return (
-    <div onClick={onClickToggle}>
+    <div onClick={onClickToggle} className="p-2">
       {theme !== 'dark' ? <BsSun /> : <BsMoon />}
     </div>
   );
