@@ -10,6 +10,8 @@ import Prism from 'prismjs';
 import { uploadBoardImage } from '@/app/api/fileupload/uploadBoardImage';
 import InputTag from './InputTag';
 import InputTitle from './InputTitle';
+import SeriesToggle from './SearchBox';
+import SearchBox from './SearchBox';
 
 type Props = {
   initValue: string;
@@ -66,14 +68,11 @@ const Tui = (props: Props) => {
     }
   };
 
-  
-
-  
-
   return (
     <>
       <InputTitle />
       <InputTag />
+      <SearchBox />
       <div id="editor">
         <Editor
           ref={editorRef}
