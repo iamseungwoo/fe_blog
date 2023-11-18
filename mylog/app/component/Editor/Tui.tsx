@@ -74,7 +74,7 @@ const Tui = (props: Props) => {
     // textarea 높이 조절
     if (textareaRef && textareaRef.current) {
       textareaRef.current.style.height = '0px';
-      const scrollHeight = textareaRef.current.scrollHeight;
+      const scrollHeight = textareaRef.current.scrollHeight + 10;
       textareaRef.current.style.height = scrollHeight + 'px';
     }
   };
@@ -88,7 +88,7 @@ const Tui = (props: Props) => {
           ref={textareaRef}
           value={text}
           onChange={onChange}
-          className="w-full resize-none font-extrabold"
+          className="w-full resize-none text-base md:text-4xl rounded-lg h-[1.5rem] md:h-[3.5rem]"
         ></textarea>
       </div>
       <InputTag />
