@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-const Editor = dynamic(() => import('../component/Editor/Editor'), {
+const Editor = dynamic(() => import('../component/Editor/Tui'), {
   ssr: false,
 });
 
