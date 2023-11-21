@@ -9,6 +9,9 @@ import { useEffect, useRef, useState } from 'react';
 import Prism from 'prismjs';
 import { uploadBoardImage } from '@/app/api/fileupload/uploadBoardImage';
 import InputTag from './InputTag';
+import InputTitle from './InputTitle';
+import SeriesToggle from './SearchBox';
+import SearchBox from './SearchBox';
 
 type Props = {
   initValue: string;
@@ -65,33 +68,11 @@ const Tui = (props: Props) => {
     }
   };
 
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-
-  const [text, setText] = useState('');
-
-  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(e.currentTarget.value);
-    // textarea 높이 조절
-    if (textareaRef && textareaRef.current) {
-      textareaRef.current.style.height = '0px';
-      const scrollHeight = textareaRef.current.scrollHeight;
-      textareaRef.current.style.height = scrollHeight + 'px';
-    }
-  };
-
   return (
     <>
-      <div>
-        <textarea
-          placeholder="제목을 입력하세요"
-          rows={1}
-          ref={textareaRef}
-          value={text}
-          onChange={onChange}
-          className="w-full resize-none font-extrabold"
-        ></textarea>
-      </div>
+      <InputTitle />
       <InputTag />
+      <SearchBox />
       <div id="editor">
         <Editor
           ref={editorRef}
@@ -111,7 +92,13 @@ const Tui = (props: Props) => {
           }
         />
       </div>
-      <button onClick={handleSubmit}>save</button>
+
+      <button
+        className="my-2 bg-white hover:bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105"
+        onClick={handleSubmit}
+      >
+        upload
+      </button>
     </>
   );
 };
