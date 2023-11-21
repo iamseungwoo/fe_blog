@@ -24,21 +24,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css"
         />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://synaptein.vercel.app/" />
-
-        <meta charSet="utf-8" />
-        <meta name="description" content="logging your knowledge" />
-        <meta name="author" content="qyinm" />
-        <meta name="keyword" content="blog, develop, backend" />
-
-        <meta
-          name="google-site-verification"
-          content="uN6r8wtwmM5jus_sDEYdaP06xZ0jF7NGQ4npFnd2Xnk"
-        />
-
-        <title>synaptein</title>
       </head>
       <body>
         <Providers>

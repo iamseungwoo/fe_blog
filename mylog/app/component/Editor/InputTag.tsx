@@ -31,7 +31,6 @@ const InputTag = () => {
         </div>
       ))}
       <input
-        className="p-1 mb-2 rounded-lg"
         placeholder="태그를 입력하세요"
         value={tagValue}
         onChange={onChange}
