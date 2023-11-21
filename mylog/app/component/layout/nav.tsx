@@ -9,10 +9,18 @@ import SignInBtn from './SignInBtn';
 import SignOutBtn from './SignOutBtn';
 
 const Nav = () => {
-  const [auth, setAuth] = useState<string | null>(getAuth());
+  const [auth, setAuth] = useState('');
+
   useEffect(() => {
-    setAuth(getAuth());
+    if (localStorage.getItem('accessToken')) {
+      setAuth(localStorage.getItem('accessToken') || '');
+    }
   }, []);
+
+  const signOut = () => {
+    setAuth('');
+  };
+
   return (
     <div className={`ml-auto flex items-center gap-2 py-3`}>
       {navlinks.map(nav => (
@@ -26,7 +34,7 @@ const Nav = () => {
           {nav.title}
         </Link>
       ))}
-      {auth ? <SignOutBtn /> : <SignInBtn />}
+      {auth ? <SignOutBtn onSignout={signOut} /> : <SignInBtn />}
       <Toggle />
     </div>
   );

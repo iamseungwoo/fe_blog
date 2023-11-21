@@ -1,8 +1,9 @@
 import Link from 'next/link';
 
-const SignOutBtn = () => {
+const SignOutBtn = ({ onSignout }: { onSignout: any }) => {
   const clickSignOut = () => {
     localStorage.removeItem('accessToken');
+    onSignout();
   };
   return (
     <div
